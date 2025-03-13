@@ -15,15 +15,12 @@ install:
       $ErrorActionPreference = 'Stop'
       $ProgressPreference = 'SilentlyContinue'
       Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1
-      .\dotnet-install.ps1 -Channel 8.0
+      .\dotnet-install.ps1 -Version 8.0.100
   - ps: dotnet --list-sdks  # Verify installed SDKs
   - ps: dotnet --version  # Verify .NET CLI version
 
 build_script:
-  - ps: |
-      $ErrorActionPreference = 'Stop'
-      & $env:USERPROFILE\.dotnet\tools\dotnet --version
-      & $env:USERPROFILE\.dotnet\tools\dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
+  - ps: dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
 
 test_script:
   - ps: dotnet test "C:\projects\portfolioumbraco\Demo.Web.csproj"
