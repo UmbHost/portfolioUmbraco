@@ -1,5 +1,3 @@
-version: 1.0.{build}
-
 environment:
   global:
     FTP_SERVER: "ftp.gb.umbhost.net"  # Replace with your FTP server address
@@ -11,10 +9,10 @@ version: 1.0.{build}
 
 environment:
   global:
-    FTP_SERVER: "ftp.gb.umbhost.net"  # Replace with your FTP server address
-    FTP_USERNAME: "webforpr_julius"  # Replace with your FTP username
-    FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
-    ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
+    FTP_SERVER: "ftp.gb.umbhost.net"
+    FTP_USERNAME: "webforpr_julius"
+    FTP_PASSWORD: "yLehspadwit0@kgufvjq"
+    ASPNETCORE_ENVIRONMENT: "Production"
 
 image: Visual Studio 2022
 
@@ -25,26 +23,30 @@ install:
       $ProgressPreference = 'SilentlyContinue'
       Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1
       .\dotnet-install.ps1 -Version 8.0.100
-  - ps: dotnet --list-sdks  # Verify installed SDKs
-  - ps: dotnet --version  # Verify .NET CLI version
+  - ps: $env:PATH = "$env:USERPROFILE\.dotnet\tools;$env:USERPROFILE\.dotnet\x64;$env:PATH"
+  - ps: dotnet --list-sdks
+  - ps: dotnet --version
 
 build_script:
   - ps: |
       $ErrorActionPreference = 'Stop'
-      $env:PATH = "$env:USERPROFILE\.dotnet\tools;$env:PATH"
+      $env:DOTNET_ROOT = "$env:USERPROFILE\.dotnet"
+      $env:PATH = "$env:DOTNET_ROOT\tools;$env:PATH"
+      dotnet --version
       dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
 
 test_script:
   - ps: |
-      $env:PATH = "$env:USERPROFILE\.dotnet\tools;$env:PATH"
+      $env:DOTNET_ROOT = "$env:USERPROFILE\.dotnet"
+      $env:PATH = "$env:DOTNET_ROOT\tools;$env:PATH"
       dotnet test "C:\projects\portfolioumbraco\Demo.Web.csproj"
-  
+
 deploy:
   provider: FTP
   server: $FTP_SERVER
   username: $FTP_USERNAME
   password: $FTP_PASSWORD
-  remote_path: /Web-For-Professionals.co.uk_WTJ1EPDM/wwwroot  # Update with your correct path
-  artifact: $APPVEYOR_BUILD_FOLDER\publish  # Path to your published output
+  remote_path: /Web-For-Professionals.co.uk_WTJ1EPDM/wwwroot
+  artifact: $APPVEYOR_BUILD_FOLDER\publish
   on:
     branch: main
