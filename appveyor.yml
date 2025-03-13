@@ -7,15 +7,6 @@ environment:
 
 version: 1.0.{build}
 
-environment:
-  global:
-    FTP_SERVER: "ftp.gb.umbhost.net"
-    FTP_USERNAME: "webforpr_julius"
-    FTP_PASSWORD: "yLehspadwit0@kgufvjq"
-    ASPNETCORE_ENVIRONMENT: "Production"
-
-image: Visual Studio 2022
-
 install:
   - ps: Install-Product node 14 x64
   - ps: |
