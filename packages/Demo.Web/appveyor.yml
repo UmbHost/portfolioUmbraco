@@ -9,27 +9,24 @@ environment:
 
 
 
+version: 1.0.{build}
+
 image: Visual Studio 2022
 
 clone_depth: 1  # Clone only the latest commit for faster build times
 
-# Define environment variables
 env:
   matrix:
     - DOTNET_VERSION: '8.0'  # Or the version you're targeting
 
-# Set build mode to 'script' explicitly
 build:
-  # Use 'script' mode to override MSBuild behavior
   mode: script
 
-  # Custom build script to handle your project structure
   script:
-    - ps: dotnet restore packages/Demo.Web/Demo.Web.csproj  # Restore NuGet packages for the project in packages/Demo.Web
-    - ps: dotnet build packages/Demo.Web/Demo.Web.csproj  # Build the specific project in packages/Demo.Web
-    - ps: dotnet publish packages/Demo.Web/Demo.Web.csproj --configuration Release --output $APPVEYOR_BUILD_FOLDER\publish  # Publish the output
+    - ps: dotnet restore Demo.Web.csproj  # Now pointing to the root location
+    - ps: dotnet build Demo.Web.csproj  # Now pointing to the root location
+    - ps: dotnet publish Demo.Web.csproj --configuration Release --output $APPVEYOR_BUILD_FOLDER\publish  # Publish the output
 
-# Deploy the application via FTP
 deploy:
   provider: FTP
   server: $FTP_SERVER
@@ -38,4 +35,4 @@ deploy:
   remote_path: /Web-For-Professionals.co.uk_WTJ1EPDM/wwwroot  # Update with your correct path
   artifact: $APPVEYOR_BUILD_FOLDER\publish  # Path to your published output
   on:
-    branch: main  # Only deploy when changes are pushed to the main branch
+    branch: main

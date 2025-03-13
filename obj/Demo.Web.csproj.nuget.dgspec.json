@@ -1,0 +1,152 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\Demo.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\Demo.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\Demo.Web.csproj",
+        "projectName": "Demo.Web",
+        "projectPath": "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\Demo.Web.csproj",
+        "packagesPath": "C:\\Users\\~0000AEAdmin\\.nuget\\packages\\",
+        "outputPath": "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\NuGet.Config",
+          "C:\\Users\\~0000AEAdmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dawoe.OEmbedPickerPropertyEditor": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            },
+            "EightyDays.Baseline": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "EightyDays.Baseline.Blog": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "EightyDays.Baseline.Careers": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "EightyDays.Baseline.Events": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "EightyDays.Baseline.Forms": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "EightyDays.Baseline.Offers": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "EightyDays.Baseline.Theming": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "EightyDays.Baseline.Venues": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.ICU.ICU4C.Runtime": {
+              "target": "Package",
+              "version": "[68.2.0.9, )"
+            },
+            "Our.Umbraco.Community.Contentment": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Our.Umbraco.ConditionalDisplayers": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Our.Umbraco.Extensions.Blocks": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Our.Umbraco.MultilanguageTextbox": {
+              "target": "Package",
+              "version": "[13.0.0, )"
+            },
+            "Our.Umbraco.SuperValueConverters": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
+            "Skybrud.Umbraco.Redirects": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            },
+            "Umbraco.Cms": {
+              "target": "Package",
+              "version": "[13.4.0, )"
+            },
+            "uSync.Complete": {
+              "target": "Package",
+              "version": "[13.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

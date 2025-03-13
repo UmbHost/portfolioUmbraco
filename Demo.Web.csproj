@@ -1,0 +1,53 @@
+﻿
+
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <Authors>80 Days</Authors>
+    <Copyright>Copyright © 2024 80 Days</Copyright>
+    <Description>Template for creating 80 Days Baseline projects</Description>
+    <PackageProjectUrl>https://github.com/80DAYS/Baseline</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/80DAYS/Baseline</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>    
+    <RazorCompileOnBuild>true</RazorCompileOnBuild>
+    <RazorCompileOnPublish>true</RazorCompileOnPublish>
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <IsPackable>true</IsPackable>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Dawoe.OEmbedPickerPropertyEditor" Version="13.0.0" />
+    <PackageReference Include="EightyDays.Baseline" Version="1.0.0" />
+    <PackageReference Include="EightyDays.Baseline.Blog" Version="1.0.0" />
+    <PackageReference Include="EightyDays.Baseline.Careers" Version="1.0.0" />
+    <PackageReference Include="EightyDays.Baseline.Events" Version="1.0.0" />
+    <PackageReference Include="EightyDays.Baseline.Forms" Version="1.0.0" />
+    <PackageReference Include="EightyDays.Baseline.Offers" Version="1.0.0" />
+    <PackageReference Include="EightyDays.Baseline.Theming" Version="1.0.0" />
+    <PackageReference Include="EightyDays.Baseline.Venues" Version="1.0.0" />
+    <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+    <PackageReference Include="Our.Umbraco.Community.Contentment" Version="4.7.0" />
+    <PackageReference Include="Our.Umbraco.ConditionalDisplayers" Version="3.4.0" />
+    <PackageReference Include="Our.Umbraco.Extensions.Blocks" Version="1.0.0" />
+    <PackageReference Include="Our.Umbraco.MultilanguageTextbox" Version="13.0.0" />
+    <PackageReference Include="Our.Umbraco.SuperValueConverters" Version="4.1.1" />
+    <PackageReference Include="Skybrud.Umbraco.Redirects" Version="13.0.4" />
+    <PackageReference Include="Umbraco.Cms" Version="13.4.0" />
+    <PackageReference Include="uSync.Complete" Version="13.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Opt-in to app-local ICU to ensure consistent globalization APIs across different platforms -->
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+  </ItemGroup>
+
+</Project>

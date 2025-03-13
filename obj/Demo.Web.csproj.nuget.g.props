@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\~0000AEAdmin\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\~0000AEAdmin\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.3.4\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.3.4\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.expansions.core\13.1.5\buildTransitive\uSync.Expansions.Core.props" Condition="Exists('$(NuGetPackageRoot)usync.expansions.core\13.1.5\buildTransitive\uSync.Expansions.Core.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.snapshots\13.1.5\buildTransitive\uSync.Snapshots.props" Condition="Exists('$(NuGetPackageRoot)usync.snapshots\13.1.5\buildTransitive\uSync.Snapshots.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.publisher\13.1.5\buildTransitive\uSync.Publisher.props" Condition="Exists('$(NuGetPackageRoot)usync.publisher\13.1.5\buildTransitive\uSync.Publisher.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.peopleedition\13.1.5\buildTransitive\uSync.PeopleEdition.props" Condition="Exists('$(NuGetPackageRoot)usync.peopleedition\13.1.5\buildTransitive\uSync.PeopleEdition.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.history\13.2.4\buildTransitive\uSync.History.props" Condition="Exists('$(NuGetPackageRoot)usync.history\13.2.4\buildTransitive\uSync.History.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.exporter\13.1.5\buildTransitive\uSync.Exporter.props" Condition="Exists('$(NuGetPackageRoot)usync.exporter\13.1.5\buildTransitive\uSync.Exporter.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.backoffice.targets\13.2.4\buildTransitive\uSync.BackOffice.Targets.props" Condition="Exists('$(NuGetPackageRoot)usync.backoffice.targets\13.2.4\buildTransitive\uSync.BackOffice.Targets.props')" />
+    <Import Project="$(NuGetPackageRoot)usync.backoffice.assets\13.2.4\buildTransitive\uSync.BackOffice.Assets.props" Condition="Exists('$(NuGetPackageRoot)usync.backoffice.assets\13.2.4\buildTransitive\uSync.BackOffice.Assets.props')" />
+    <Import Project="$(NuGetPackageRoot)umbraco.forms.staticassets\13.0.0\buildTransitive\Umbraco.Forms.StaticAssets.props" Condition="Exists('$(NuGetPackageRoot)umbraco.forms.staticassets\13.0.0\buildTransitive\Umbraco.Forms.StaticAssets.props')" />
+    <Import Project="$(NuGetPackageRoot)umbraco.forms\13.0.0\buildTransitive\Umbraco.Forms.props" Condition="Exists('$(NuGetPackageRoot)umbraco.forms\13.0.0\buildTransitive\Umbraco.Forms.props')" />
+    <Import Project="$(NuGetPackageRoot)umbraco.cms.staticassets\13.4.0\buildTransitive\Umbraco.Cms.StaticAssets.props" Condition="Exists('$(NuGetPackageRoot)umbraco.cms.staticassets\13.4.0\buildTransitive\Umbraco.Cms.StaticAssets.props')" />
+    <Import Project="$(NuGetPackageRoot)umbraco.cms.targets\13.4.0\buildTransitive\Umbraco.Cms.Targets.props" Condition="Exists('$(NuGetPackageRoot)umbraco.cms.targets\13.4.0\buildTransitive\Umbraco.Cms.Targets.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.6\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\8.0.6\buildTransitive\net8.0\Microsoft.EntityFrameworkCore.props')" />
+    <Import Project="$(NuGetPackageRoot)skybrud.umbraco.redirects\13.0.4\buildTransitive\Skybrud.Umbraco.Redirects.props" Condition="Exists('$(NuGetPackageRoot)skybrud.umbraco.redirects\13.0.4\buildTransitive\Skybrud.Umbraco.Redirects.props')" />
+    <Import Project="$(NuGetPackageRoot)our.umbraco.multilanguagetextbox.ui\13.0.0\buildTransitive\Our.Umbraco.MultilanguageTextbox.UI.props" Condition="Exists('$(NuGetPackageRoot)our.umbraco.multilanguagetextbox.ui\13.0.0\buildTransitive\Our.Umbraco.MultilanguageTextbox.UI.props')" />
+    <Import Project="$(NuGetPackageRoot)our.umbraco.extensions.variables\1.0.0\buildTransitive\Our.Umbraco.Extensions.Variables.props" Condition="Exists('$(NuGetPackageRoot)our.umbraco.extensions.variables\1.0.0\buildTransitive\Our.Umbraco.Extensions.Variables.props')" />
+    <Import Project="$(NuGetPackageRoot)our.umbraco.extensions.theming\1.0.0\buildTransitive\Our.Umbraco.Extensions.Theming.props" Condition="Exists('$(NuGetPackageRoot)our.umbraco.extensions.theming\1.0.0\buildTransitive\Our.Umbraco.Extensions.Theming.props')" />
+    <Import Project="$(NuGetPackageRoot)eightydays.baseline\1.0.0\buildTransitive\EightyDays.Baseline.props" Condition="Exists('$(NuGetPackageRoot)eightydays.baseline\1.0.0\buildTransitive\EightyDays.Baseline.props')" />
+    <Import Project="$(NuGetPackageRoot)dawoe.oembedpickerpropertyeditor.ui\13.0.0\buildTransitive\Dawoe.OEmbedPickerPropertyEditor.UI.props" Condition="Exists('$(NuGetPackageRoot)dawoe.oembedpickerpropertyeditor.ui\13.0.0\buildTransitive\Dawoe.OEmbedPickerPropertyEditor.UI.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\~0000AEAdmin\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.4</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgLucene_Net Condition=" '$(PkgLucene_Net)' == '' ">C:\Users\~0000AEAdmin\.nuget\packages\lucene.net\4.8.0-beta00016</PkgLucene_Net>
+    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\~0000AEAdmin\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+  </PropertyGroup>
+</Project>

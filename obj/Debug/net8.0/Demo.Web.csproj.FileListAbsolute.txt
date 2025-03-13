@@ -1,0 +1,10 @@
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.csproj.AssemblyReference.cache
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.AssemblyInfoInputs.cache
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.AssemblyInfo.cs
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.csproj.CoreCompileInputs.cache
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.RazorAssemblyInfo.cache
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.RazorAssemblyInfo.cs
+C:\users\juliusgoddard\documents\repositories\baseline2\obj\Debug\net8.0\Demo.Web.sourcelink.json
