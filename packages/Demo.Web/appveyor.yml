@@ -7,12 +7,15 @@ environment:
     FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
+image: mcr.microsoft.com/dotnet/core/sdk:8.0
+
 environment:
   matrix:
     - DOTNET_VERSION: '8.0'
 
 install:
-  - ps: Install-Product -Name 'dotnet' -Version $Env:DOTNET_VERSION -Force
+  - ps: dotnet --version  # Check the installed version of .NET SDK
+  - ps: dotnet restore packages/Demo.Web/Demo.Web.csproj
 
 build:
   project: packages/Demo.Web/Demo.Web.csproj
@@ -20,8 +23,6 @@ build:
   target: Build
 
 version: 1.0.{build}
-
-image: mcr.microsoft.com/dotnet/core/sdk:8.0
 
 clone_depth: 1  # Clone only the latest commit for faster build times
 
