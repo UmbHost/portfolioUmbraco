@@ -14,7 +14,11 @@ clone_depth: 1  # Clone only the latest commit for faster build times
 # Define environment variables
 env:
   matrix:
-    - DOTNET_VERSION: '8.0'  # Or the version you're targeting
+    - DOTNET_VERSION: '6.0'  # Or the version you're targeting
+
+# Set build mode to 'script' to override MSBuild default behavior
+build:
+  mode: script
 
 # Custom build script to handle your project structure
 build_script:
