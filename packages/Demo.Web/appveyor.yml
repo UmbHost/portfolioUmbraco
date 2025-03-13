@@ -7,6 +7,15 @@ environment:
     FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
+version: 1.0.{build}
+
+environment:
+  global:
+    FTP_SERVER: "ftp.gb.umbhost.net"  # Replace with your FTP server address
+    FTP_USERNAME: "webforpr_julius"  # Replace with your FTP username
+    FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
+    ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
+
 image: Visual Studio 2022
 
 install:
@@ -20,10 +29,15 @@ install:
   - ps: dotnet --version  # Verify .NET CLI version
 
 build_script:
-  - ps: dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
+  - ps: |
+      $ErrorActionPreference = 'Stop'
+      $env:PATH = "$env:USERPROFILE\.dotnet\tools;$env:PATH"
+      dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
 
 test_script:
-  - ps: dotnet test "C:\projects\portfolioumbraco\Demo.Web.csproj"
+  - ps: |
+      $env:PATH = "$env:USERPROFILE\.dotnet\tools;$env:PATH"
+      dotnet test "C:\projects\portfolioumbraco\Demo.Web.csproj"
   
 deploy:
   provider: FTP
