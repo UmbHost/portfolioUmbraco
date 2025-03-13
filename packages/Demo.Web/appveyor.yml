@@ -7,10 +7,22 @@ environment:
     FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
+image: Visual Studio 2022
+
+clone_depth: 1  # Clone only the latest commit for faster build times
+
+# Define environment variables
+env:
+  matrix:
+    - DOTNET_VERSION: '8.0'  # Or the version you're targeting
+
+# Custom build script to handle your project structure
 build_script:
   - ps: dotnet restore packages/Demo.Web/Demo.Web.csproj  # Restore NuGet packages for the project in packages/Demo.Web
-  - ps: dotnet build packages/Demo.Web/Demo.Web.csproj  # Build the specific project
+  - ps: dotnet build packages/Demo.Web/Demo.Web.csproj  # Build the specific project in packages/Demo.Web
+  - ps: dotnet publish packages/Demo.Web/Demo.Web.csproj --configuration Release --output $APPVEYOR_BUILD_FOLDER\publish  # Publish the output
 
+# Deploy the application via FTP
 deploy:
   provider: FTP
   server: $FTP_SERVER
