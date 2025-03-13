@@ -9,18 +9,31 @@ environment:
 
 
 
+environment:
+  matrix:
+    - DOTNET_VERSION: '8.0'
+
+install:
+  - ps: Install-Product -Name 'dotnet' -Version $Env:DOTNET_VERSION -Force
+
+build:
+  project: Demo.Web/Demo.Web.csproj
+  verbosity: minimal
+  target: Build
+
 version: 1.0.{build}
 
 image: Visual Studio 2022
 
 clone_depth: 1  # Clone only the latest commit for faster build times
 
-env:
-  matrix:
-    - DOTNET_VERSION: '8.0'  # Or the version you're targeting
+install:
+  - ps: Install-Product -Name 'dotnet' -Version $Env:DOTNET_VERSION -Force
 
 build:
-  mode: script
+  project: Demo.Web/Demo.Web.csproj
+  verbosity: minimal
+  target: Build
 
   script:
     - ps: dotnet restore Demo.Web.csproj  # Now pointing to the root location
