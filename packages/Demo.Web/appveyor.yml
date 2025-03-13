@@ -1,0 +1,22 @@
+version: 1.0.{build}
+
+environment:
+  global:
+    FTP_SERVER: "ftp.gb.umbhost.net"  # Replace with your FTP server address
+    FTP_USERNAME: "webforpr_julius"  # Replace with your FTP username
+    FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
+    ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
+
+build_script:
+  - ps: dotnet restore Demo.Web\Demo.Web.csproj  # Restore NuGet packages before build
+  - ps: dotnet build Demo.Web\Demo.Web.csproj  # Build the specific project
+
+deploy:
+  provider: FTP
+  server: $FTP_SERVER
+  username: $FTP_USERNAME
+  password: $FTP_PASSWORD
+  remote_path: /Web-For-Professionals.co.uk_WTJ1EPDM/wwwroot  # Update with your correct path
+  artifact: $APPVEYOR_BUILD_FOLDER\publish  # Path to your published output
+  on:
+    branch: main  # Only deploy when changes are pushed to the main branch
