@@ -1,0 +1,62 @@
+
+@inherits UmbracoViewPage<Landing>
+
+@{
+	var items = Model.Items;
+}
+
+
+<div class="landing">
+    @foreach (var item in items) {
+
+        var rowItem = (LandingItem)item.Content;
+        var imagePlacementClass = "left";
+
+        switch (rowItem.ImagePlacement)
+        {
+            case "left":
+	            imagePlacementClass = null;
+                break;
+            case "right":
+                imagePlacementClass = "landing__item--image-right";
+                break;
+        }
+
+            <div class="landing__item @imagePlacementClass grid-x">
+                <div class="landing__slider cell medium-7 large-6 large-offset-1" data-animate-in-view="landing-alternating-fade-in">
+                    <div class="landing__slider-inner">
+                        <div class="landing__slider-image">
+                                @if (rowItem.Image != null)
+                {
+                    <picture class="landing__image">
+                        <source srcset="@rowItem.Image.Url()" media="(max-width: 640px)">
+                        <img src="@rowItem.Image.Url()" alt="">
+                    </picture>
+                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="landing__content cell medium-5 large-4" data-animate-in-view="landing-alternating-fade-in">
+
+<h2>@rowItem.Heading</h2>
+<h3>@rowItem.Subheading</h3>
+
+                   <p> @rowItem.Text </p>
+
+             <div class="multiple-buttons">
+                                 @if (rowItem.PrimaryLink != null)
+                    {
+                        <a class="button" href="@rowItem.PrimaryLink">@rowItem.PrimaryLink.Name</a>
+                    }
+                         @if (rowItem.SecondaryLink != null) {
+                        <a class="button button--primary" href="@rowItem.SecondaryLink">Book Now</a>
+                         }
+                        </div>
+                </div>
+            </div>
+}
+        </div>
+        
+    

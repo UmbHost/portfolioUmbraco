@@ -1,0 +1,64 @@
+﻿
+@using Umbraco.Cms.Core.Models
+@using Umbraco.Cms.Core.Models.PublishedContent
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+@{
+var nodes =  Model.Root();
+ var websiteSettings = Model.AncestorOrSelf<Website>().Descendant<WebsiteSettings>();
+}
+
+
+<footer class="footer">
+  <div class="footer__main">
+    <div class="footer__inner grid-x">
+      <nav class="footer__primary cell small-6 large-2 large-offset-1">
+        <ul>
+         @foreach (var link in websiteSettings.FooterPrimaryLinks)
+                    {
+                        var isCurrentSection = (link?.Udi != null && Umbraco.Content(link.Udi)?.IsAncestorOrSelf(Model) == true);
+                        <li><a href="@(link?.Url)" class="@(isCurrentSection? "active" : null)" target="@(link?.Target)">@(link?.Name)</a></li>
+                    }
+        </ul>
+      </nav>
+
+      <nav class="footer__secondary cell small-6 large-2">
+        <ul>
+      @foreach (var link in websiteSettings.FooterSecondaryLinks)
+                    {
+                        var isCurrentSection = (link?.Udi != null && Umbraco.Content(link.Udi)?.IsAncestorOrSelf(Model) == true);
+                        <li><a href="@(link?.Url)" class="@(isCurrentSection? "active" : null)" target="@(link?.Target)">@(link?.Name)</a></li>
+                    }
+        </ul>
+      </nav>
+
+      <div class="footer__copyright cell medium-6 large-2 large-offset-2">
+        <p>© Copyright Web For Professionals @websiteSettings.Value("address")</p>
+        <p>
+          <a href="tel:01132431234">@websiteSettings.Value("phoneNumber")</a>
+          <a href="mailto:test@example.com">@websiteSettings.Value("email")</a>
+        </p>
+      </div>
+
+      <div class="footer__social cell medium-6 large-2 large-offset-1">
+        <ul class="footer__social-icons">
+      @{
+var aVarName = websiteSettings.Value<IEnumerable<IPublishedContent>>("SocialIcons");
+}
+
+@foreach (var item in aVarName) {
+  if (item is MediaWithCrops Icon)
+  {
+<a href="@(Icon.MediaUrl())"><img class="card-img-top" src="@(Icon.MediaUrl())" alt="placeholder" /></a>
+  }
+}
+        </ul>
+
+        <div class="footer__social-80days">
+          <p>@websiteSettings.Value("credit")</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

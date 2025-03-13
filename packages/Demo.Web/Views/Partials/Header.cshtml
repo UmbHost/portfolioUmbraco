@@ -1,0 +1,64 @@
+﻿@inherits UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+@{
+var nodes =  Model.Root();
+ var websiteSettings = Model.AncestorOrSelf<Website>().Descendant<WebsiteSettings>();
+}
+
+<header class="header">
+  <div class="header__inner">
+        <button type="button" class="button header__open-off-canvas" data-toggle="offCanvas">
+            Open Menu
+        </button>
+
+    <nav class="header__top-nav header__top-nav--left">
+      <ul>
+ 
+    @foreach (var link in websiteSettings.HeaderSecondaryNavigationLeft)
+                    {
+         var isCurrentSection = (link?.Udi != null && Umbraco.Content(link.Udi)?.IsAncestorOrSelf(Model) == true);
+                        <li><a href="@(link?.Url)" class="@(isCurrentSection? "active" : null)" target="@(link?.Target)">@(link?.Name)</a></li>
+                    }
+                    
+      </ul>
+    </nav>
+
+    <div class="header__logo header__logo--normal">
+      <a href="/">
+      @{
+    var typedMediaPickerSingle = websiteSettings.Value("logo");
+    if (typedMediaPickerSingle is MediaWithCrops logo)
+    {
+        <img src="@logo.MediaUrl()"/>
+    }
+}</a>
+    </div>
+    <div class="header__logo header__logo--transparent">
+      <a href="/">@{
+    var typedMediaPickerDouble = websiteSettings.Value("logoTransparent");
+    if (typedMediaPickerDouble is MediaWithCrops logoTransparent)
+    {
+        <img src="@logoTransparent.MediaUrl()"/>
+    }
+}</a>
+    </div>
+
+    <nav class="header__top-nav header__top-nav--right">
+      <ul>
+          @foreach (var link in websiteSettings.HeaderSecondaryNavigationRight)
+                    {
+                        var isCurrentSection = (link?.Udi != null && Umbraco.Content(link.Udi)?.IsAncestorOrSelf(Model) == true);
+                        <li><a href="@(link?.Url)" class="@(isCurrentSection? "active" : null)" target="@(link?.Target)">@(link?.Name)</a></li>
+                    }
+      </ul>
+    </nav>
+
+    <button type="button" class="button header__open-booking">
+<a href="mailto:julius.goddard@webforprofessionals.com">Contact Us</a>
+    </button>
+    <a href="tel:@websiteSettings.Value("telephoneNumber")" class="header__mobile-call"
+      >Call <img src="/assets/img/new/ql-phone-white.svg"
+    /></a>
+  </div>
+</header>

@@ -1,0 +1,63 @@
+﻿@inherits UmbracoViewPage
+@{
+    Layout = "_Layout.cshtml";
+    var Items = Model.Root();
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="shortcut icon" href="@Items.Value("siteFavicon")" type="image/x-icon" />
+
+    <link type="text/css" rel="stylesheet" href="/css/site-priority.css" />
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+<!-- Foundation CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css">
+
+<!-- Foundation JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js"></script>
+
+
+</head>
+
+<body class="@Model.Value("bodyClass", fallback: Fallback.ToAncestors) @ViewBag.BodyClass">
+<a href="#main" class="show-for-sr">
+    Skip to main content
+</a>
+
+<div class="off-canvas-wrapper">
+    @await Html.PartialAsync("BurgerMenu")
+
+    <div class="off-canvas-content" data-off-canvas-content data-sticky-container>
+        @await Html.PartialAsync("Header")
+
+        <main>
+            @RenderBody()
+        </main>
+
+
+        @await Html.PartialAsync("Footer")
+    </div>
+</div>
+<script src="/assets/site-priority.js"></script>
+    <script defer src="/assets/site-main.js"></script>
+    <script defer src="https://www.google.com/recaptcha/api.js"></script>
+        <link
+      rel="preload"
+      href="/css/site-main.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <script
+  type="text/javascript"
+  src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js"
+></script>
+    <noscript><link rel="stylesheet" href="css/site-main.css" /></noscript>
+</body>
+</html>

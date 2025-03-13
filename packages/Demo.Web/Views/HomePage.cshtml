@@ -1,0 +1,7 @@
+﻿@inherits UmbracoViewPage<IContentComposition>
+@{
+    Layout = "layout.cshtml";
+    ViewBag.BodyClass = "home";
+    
+	await Html.RenderElements(Model.BodyElements, "BodyElements");
+}

@@ -1,0 +1,23 @@
+@inherits UmbracoViewPage<Slider>
+@{
+var items = Model.Elements;
+}
+<div class="slider slider--full-height">
+    <div class="slider__inner">
+        @foreach (var item in items) {
+      var rowItem = (SliderImageItem)item.Content;
+                <div class="slider__slide">
+                    @if (rowItem.Image != null) {
+                        <div class="slider__image">
+                            <picture>
+                                <source srcset="@rowItem.Image.Url()" media="(max-width: 640px)">
+                                <img src="@rowItem.Image.Url()" loading="lazy" alt="">
+                            </picture>
+                        </div>
+                    }
+                </div>
+        }
+
+        
+    </div>
+</div>

@@ -1,0 +1,6 @@
+﻿@inherits UmbracoViewPage<BlogDetailPage>
+@{
+    Layout = "Layout.cshtml";
+
+    @await Html.GetBlockListHtmlAsync(Model.BodyElements)
+}

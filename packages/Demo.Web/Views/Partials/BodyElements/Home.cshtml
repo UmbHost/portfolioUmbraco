@@ -1,0 +1,66 @@
+@inherits UmbracoViewPage<Home>
+ 
+@{
+	var items = Model.Items;
+}
+
+
+
+<div class="home">
+
+    @foreach (var item in items)
+    {
+
+          var rowItem = (Homeitem)item.Content;
+        var imagePlacementClass = "left";
+
+        switch (rowItem.ImagePlacement)
+        {
+            case "left":
+	            imagePlacementClass = null;
+                break;
+            case "right":
+                imagePlacementClass = "home__item--image-right";
+                break;
+        }
+
+        <div class="home__item grid-x @imagePlacementClass">
+            <div class="home__image cell medium-6 transition--1250 transform--will-fade-right" data-animate-in-view="transform--completed-fade-right">
+                @if (rowItem.LargeImage != null)
+                {
+                    <picture class="home__image-large">
+                        <source srcset="@rowItem.LargeImage.Url()" media="(max-width: 640px)">
+                        <img src="@rowItem.LargeImage.Url()" alt="">
+                    </picture>
+                }
+            </div>
+
+            <div class="home__content cell medium-6">
+                <div class="home__content-inner transition--1250 transform--will-fade-up" data-animate-in-view="transform--completed-fade-up">
+                    @if (!string.IsNullOrEmpty(rowItem.Heading))
+                    {
+                        <h2>@rowItem.Heading</h2>
+                    }
+                    @if (!string.IsNullOrEmpty(rowItem.Subheading))
+                    {
+                        <h3>@rowItem.Subheading</h3>
+                    }
+
+                    @rowItem.Text
+
+                    
+                        <div class="multiple-buttons">
+                              @if (rowItem.PrimaryLink != null)
+                    {
+                           <a class="button" href="@rowItem.PrimaryLink">Read More</a>
+                    }
+                    @if (rowItem.SecondaryLink != null) {
+                        <a class="button button--primary" href="@rowItem.PrimaryLink">Book Now</a>
+                        }
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    }
+</div>

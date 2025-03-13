@@ -1,0 +1,67 @@
+@inherits UmbracoViewPage<Accommodation>
+@{
+    if (Model.Items == null || !Model.Items.Any())
+    {
+        return;
+    }
+}
+
+
+<div class="accommodation grid-x">
+
+    <div class="accommodation__items grid-x cell large-10 large-offset-1">
+
+        @foreach (var item in Model.Items)
+        {
+            <div class="accommodation__item cell medium-6">
+                <div class="accommodation__item-inner transition--1750 transform--will-fade-up" data-animate-in-view="transform--completed-fade-up">
+    @*     @if (item.Image != null)
+                    {
+	                    <div class="accommodation__image">
+                            <a href="@item.PrimaryLink.Url" target="@item.PrimaryLink.Target">
+                                <picture>
+                                    <source srcset="@item.Image.GetCroppedImageUrl("640x430")"
+                                            media="(max-width: 640px)" />
+                                    <img src="@item.Image.GetCroppedImageUrl("990x670")" />
+                                </picture>
+                            </a>
+	                    </div>
+                    }
+
+                    <div class="accommodation__content">
+                        @if (!string.IsNullOrEmpty(item.ListingHeading))
+                        {
+                            <h2>@item.Heading.SurroundWithLink(item.PrimaryLink)</h2>
+                        }
+                        
+                        @if (!string.IsNullOrEmpty(item.ListingSummary))
+                        {
+                            <h3>@item.Subheading.SurroundWithLink(item.PrimaryLink)</h3>
+                        }
+
+         
+                    </div>
+
+           @*         <div class="accommodation__details">
+                        @if (!string.IsNullOrEmpty(item.Price))
+                        {
+                            <div class="accommodation__price">
+                                <h4>@item.Price.ReplaceSquareBracketsWithTag("span")</h4>
+                            </div>
+                        }
+
+                        @if (item.PrimaryLink.IsValidLink() || item.SecondaryLink.IsValidLink())
+                        {
+                            <div class="multiple-buttons">
+                                @item.SecondaryLink.GetLink(cssClass: "button")
+                                @item.PrimaryLink.GetLink(cssClass: "button button--primary")
+                            </div>
+                        }
+                    </div> *@
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>

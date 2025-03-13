@@ -1,0 +1,32 @@
+﻿@inherits UmbracoViewPage<Gallery>
+
+
+@{
+	var items = Model.Items;
+}
+
+
+<div class="gallery wrap" data-filter data-filter-class="gallery__item" data-filter-controls="filter__buttons" data-filter-controls-select-dropdown-mobile>
+    <div class="filter cell grid-x transition--1750 transform--will-fade-up" data-animate-in-view="transform--completed-fade-up" data-filter-controls-select-dropdown-mobile>
+        <div class="filter__inner cell medium-10 medium-offset-1">
+            <span>Filter:</span>
+            <div class="filter__buttons">
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery__grid cf">
+        <div class="gallery__item-sizer"></div>
+@foreach (var item in items) {
+
+    var rowItem = (GalleryItem)item.Content;
+            <div class="gallery__item">
+                <a href="@rowItem?.Image.Url()" data-title="@rowItem?.ImageTitle" data-description="@rowItem?.Rate" data-book-link="@rowItem?.Link?.Url" data-book-title="@rowItem.Link?.Name">    
+         <picture>
+               <img src="  @rowItem?.Image.Url()" alt="">
+         </picture>
+                </a>
+            </div>
+}
+    </div>
+</div>

@@ -1,0 +1,20 @@
+@inherits UmbracoViewPage<SliderVideo>
+@{
+var elements = Model.Elements;
+}
+<div class="slider slider--full-height">
+    <div class="slider__inner">
+             @foreach (var element in elements) {
+                var rowItem = (SliderVideoItem)element.Content;
+                <div class="slider__slide">
+                
+                        <div class="slider__video">
+                            <iframe src="@rowItem.VideoLink" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        </div>
+                    
+                </div>
+            }
+
+        
+    </div>
+</div>

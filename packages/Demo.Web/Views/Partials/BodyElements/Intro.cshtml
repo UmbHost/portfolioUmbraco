@@ -1,0 +1,16 @@
+﻿@inherits UmbracoViewPage<Intro>
+
+<div class="intro transition--1250 transform--will-fade-up" data-animate-in-view="transform--completed-fade-up">
+ <h1>@Model.Heading</h1>
+ <h2>@Model.SubHeading</h2>
+ 
+ <p>@Model.Text</p>
+
+    @if (Model.PrimaryLink != null || Model.SecondaryLink != null)
+    {
+        <div class="multiple-buttons">
+         <button class="button">@Model.PrimaryLink.Name</button>
+        <button class="button button--primary">@Model.SecondaryLink.Name</button>
+        </div>
+    }
+</div>
