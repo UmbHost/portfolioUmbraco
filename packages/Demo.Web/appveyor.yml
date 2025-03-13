@@ -7,38 +7,24 @@ environment:
     FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
-image: Visual Studio 2022
-
-environment:
-  matrix:
-    - DOTNET_VERSION: '8.0'
-
-install:
-  - ps: dotnet --version  # Verify that .NET 8.0 is installed
-  - ps: dotnet restore packages/Demo.Web/Demo.Web.csproj
-
-build:
-  project: packages/Demo.Web/Demo.Web.csproj
-  verbosity: minimal
-  target: Build
-
 version: 1.0.{build}
 
-clone_depth: 1  # Clone only the latest commit for faster build times
+image: Visual Studio 2022
 
 install:
-  - ps: Install-Product -Name 'dotnet' -Version $Env:DOTNET_VERSION -Force
+  - ps: Install-Product node 14 x64
+  - ps: |
+      $ErrorActionPreference = 'Stop'
+      $ProgressPreference = 'SilentlyContinue'
+      Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1
+      .\dotnet-install.ps1 -Channel 8.0
 
-build:
-  project: Demo.Web/Demo.Web.csproj
-  verbosity: minimal
-  target: Build
+build_script:
+  - ps: dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
 
-  script:
-    - ps: dotnet restore Demo.Web.csproj  # Now pointing to the root location
-    - ps: dotnet build Demo.Web.csproj  # Now pointing to the root location
-    - ps: dotnet publish Demo.Web.csproj --configuration Release --output $APPVEYOR_BUILD_FOLDER\publish  # Publish the output
-
+test_script:
+  - ps: dotnet test "C:\projects\portfolioumbraco\Demo.Web.csproj"
+  
 deploy:
   provider: FTP
   server: $FTP_SERVER
