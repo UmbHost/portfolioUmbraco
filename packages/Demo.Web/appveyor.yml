@@ -20,7 +20,10 @@ install:
   - ps: dotnet --version  # Verify .NET CLI version
 
 build_script:
-  - ps: dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
+  - ps: |
+      $ErrorActionPreference = 'Stop'
+      & $env:USERPROFILE\.dotnet\tools\dotnet --version
+      & $env:USERPROFILE\.dotnet\tools\dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
 
 test_script:
   - ps: dotnet test "C:\projects\portfolioumbraco\Demo.Web.csproj"
