@@ -8,8 +8,8 @@ environment:
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
 build_script:
-  - ps: dotnet restore Demo.Web\Demo.Web.csproj  # Restore NuGet packages before build
-  - ps: dotnet build Demo.Web\Demo.Web.csproj  # Build the specific project
+  - ps: dotnet restore packages/Demo.Web/Demo.Web.csproj  # Restore NuGet packages for the project in packages/Demo.Web
+  - ps: dotnet build packages/Demo.Web/Demo.Web.csproj  # Build the specific project
 
 deploy:
   provider: FTP
