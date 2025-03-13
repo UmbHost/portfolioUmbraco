@@ -7,14 +7,14 @@ environment:
     FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
-image: mcr.microsoft.com/dotnet/core/sdk:8.0
+image: Visual Studio 2022
 
 environment:
   matrix:
     - DOTNET_VERSION: '8.0'
 
 install:
-  - ps: dotnet --version  # Check the installed version of .NET SDK
+  - ps: dotnet --version  # Verify that .NET 8.0 is installed
   - ps: dotnet restore packages/Demo.Web/Demo.Web.csproj
 
 build:
