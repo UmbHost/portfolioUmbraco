@@ -7,8 +7,6 @@ environment:
     FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
-version: 1.0.{build}
-
 image: Visual Studio 2022
 
 install:
@@ -18,6 +16,8 @@ install:
       $ProgressPreference = 'SilentlyContinue'
       Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1
       .\dotnet-install.ps1 -Channel 8.0
+  - ps: dotnet --list-sdks  # Verify installed SDKs
+  - ps: dotnet --version  # Verify .NET CLI version
 
 build_script:
   - ps: dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
