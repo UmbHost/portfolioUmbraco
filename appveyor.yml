@@ -27,6 +27,8 @@ build_script:
       dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
       dotnet publish "C:\projects\portfolioumbraco\Demo.Web.csproj" -c Release -o "C:\projects\portfolioumbraco\publish"
 
+  - ps: Get-ChildItem -Path "C:\projects\portfolioumbraco\publish" -Recurse  
+
 test_script:
   - ps: |
       $env:DOTNET_ROOT = "$env:USERPROFILE\.dotnet"
