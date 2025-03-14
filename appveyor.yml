@@ -3,7 +3,15 @@ version: 1.0.0-{build}
 image: Visual Studio 2022
 configuration: UAT
 
+install:
+  - ps: |
+      $env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+      $env:DOTNET_CLI_TELEMETRY_OPTOUT=1
+      Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1
+      ./dotnet-install.ps1 -Version 8.0.401 -InstallDir "$env:ProgramFiles\dotnet" -NoPath
+
 before_build:
+  - dotnet --info
   - dotnet restore
 
 build_script:
