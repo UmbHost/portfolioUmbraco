@@ -5,8 +5,6 @@ image: Visual Studio 2017
 
 configuration: UMBHOST
 
-before_build: nuget restore
-
 build: 
     publish_wap: true
 
