@@ -1,3 +1,22 @@
+
+version: 1.0.0-{build}
+
+image: Visual Studio 2017
+
+configuration: UMBHOST
+
+before build: nuget restore
+
+build: 
+    publish_wap: true
+
+deploy:
+    provider: Environment
+    name: UMBHOST.web-for-professionals.co.uk
+    on:
+      branch: main
+
+
 environment:
   global:
     FTP_SERVER: "ftp.gb.umbhost.net"  # Replace with your FTP server address
@@ -5,42 +24,3 @@ environment:
     FTP_PASSWORD: "yLehspadwit0@kgufvjq"  # Replace with your FTP password
     ASPNETCORE_ENVIRONMENT: "Production"  # Optional: Set to "Production" for production environment
 
-version: 1.0.{build}
-
-install:
-  - ps: Install-Product node 14 x64
-  - ps: |
-      $ErrorActionPreference = 'Stop'
-      $ProgressPreference = 'SilentlyContinue'
-      Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1
-      .\dotnet-install.ps1 -Version 8.0.100
-  - ps: $env:PATH = "$env:USERPROFILE\.dotnet\tools;$env:USERPROFILE\.dotnet\x64;$env:PATH"
-  - ps: dotnet --list-sdks
-  - ps: dotnet --version
-
-build_script:
-  - ps: |
-      $ErrorActionPreference = 'Stop'
-      $env:DOTNET_ROOT = "$env:USERPROFILE\.dotnet"
-      $env:PATH = "$env:DOTNET_ROOT\tools;$env:PATH"
-      dotnet --version
-      dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
-      dotnet publish "C:\projects\portfolioumbraco\Demo.Web.csproj" -c Release -o "C:\projects\portfolioumbraco\publish"
-
-  - ps: Get-ChildItem -Path "C:\projects\portfolioumbraco\publish" -Recurse  
-
-test_script:
-  - ps: |
-      $env:DOTNET_ROOT = "$env:USERPROFILE\.dotnet"
-      $env:PATH = "$env:DOTNET_ROOT\tools;$env:PATH"
-      dotnet test "C:\projects\portfolioumbraco\Demo.Web.csproj"
-
-deploy:
-  provider: FTP
-  server: $FTP_SERVER
-  username: $FTP_USERNAME
-  password: $FTP_PASSWORD
-  remote_path: /Web-For-Professionals.co.uk_WTJ1EPDM/wwwroot
-  artifact: C:\projects\portfolioumbraco\publish
-  on:
-    branch: main
