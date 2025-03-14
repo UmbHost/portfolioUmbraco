@@ -1,13 +1,16 @@
+
 version: 1.0.0-{build}
-image: Visual Studio 2017
+image: Visual Studio 2022
 configuration: UAT
-cache: 
-    - packages -> **\packages.config
-before_build: nuget restore
-build: 
-    publish_wap: true
+
+before_build:
+  - dotnet restore
+
+build_script:
+  - dotnet publish -c UAT -o output
+
 deploy:
- provider: Environment
- name: UMBHOST.web-for-professionals.co.uk
- on:
-   branch: master
+  provider: Environment
+  name: UMBHOST.web-for-professionals.co.uk
+  on:
+    branch: main
