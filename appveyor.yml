@@ -25,6 +25,7 @@ build_script:
       $env:PATH = "$env:DOTNET_ROOT\tools;$env:PATH"
       dotnet --version
       dotnet build "C:\projects\portfolioumbraco\Demo.Web.csproj" /verbosity:minimal
+      dotnet publish "C:\projects\portfolioumbraco\Demo.Web.csproj" -c Release -o "C:\projects\portfolioumbraco\publish"
 
 test_script:
   - ps: |
@@ -38,6 +39,6 @@ deploy:
   username: $FTP_USERNAME
   password: $FTP_PASSWORD
   remote_path: /Web-For-Professionals.co.uk_WTJ1EPDM/wwwroot
-  artifact: $APPVEYOR_BUILD_FOLDER\publish
+  artifact: C:\projects\portfolioumbraco\publish
   on:
     branch: main
