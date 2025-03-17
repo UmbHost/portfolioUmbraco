@@ -29,9 +29,9 @@ jobs:
         - name: Deploy to UmbHost
           uses: UmbHost/umbhost-web-deploy@v1.0.1
           with:
-            website-name: 'web-for-professionals.co.uk'
-            server-computer-name: https://webdeploy.gb.umbhost.net:8172/msdeploy.axd?site=web-for-professionals.co.uk
-            server-username: 'web_for_profes_dploy'
-            server-password: 'xi9gGwuCwDNS6m6k'
+            website-name: ${{ secrets.WEBSITE_NAME }}
+            server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
+            server-username: ${{ secrets.USERNAME }}
+            server-password: ${{ secrets.PASSWORD }}
             source-path: '_build'
             source-fileName: Demo.Web.zip
