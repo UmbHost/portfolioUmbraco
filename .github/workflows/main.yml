@@ -31,7 +31,7 @@ jobs:
           with:
             website-name: 'web-for-professionals.co.uk'
             server-computer-name: https://webdeploy.gb.umbhost.net:8172/msdeploy.axd?site=web-for-professionals.co.uk
-            server-username: 'web-for-profes_dploy'
+            server-username: 'web_for_profes_dploy'
             server-password: 'xi9gGwuCwDNS6m6k'
             source-path: '_build'
             source-fileName: Demo.Web.zip
