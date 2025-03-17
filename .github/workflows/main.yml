@@ -1,0 +1,37 @@
+name: Build, publish and deploy project to UmbHost
+
+on:
+  push:
+    branches: [ main ]
+env:
+    SolutionName: Demo.Web.sln
+    BuildPlatform: Any CPU
+    BuildConfiguration: Release
+    EnvironmentName: Production
+    ZippedFileName: Demo.Web.zip
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Create Build Directory
+          run: mkdir _build
+      
+        - name: Build Solution
+          run: | 
+            dotnet build Demo.Web.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:DeleteExistingFiles=True /p:SkipInvalidConfigurations=true /p:IncludeSetAclProviderOnDestination=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:platform="Any CPU" /p:configuration="Release" /p:PackageLocation="../_build" /p:EnvironmentName=Production
+            
+        - name: Deploy to UmbHost
+          uses: UmbHost/umbhost-web-deploy@v1.0.1
+          with:
+            website-name: web-for-professionals.co.uk
+            server-computer-name: https://webdeploy.gb.umbhost.net:8172/msdeploy.axd?site=web-for-professionals.co.uk
+            server-username: web-for-profes_dploy
+            server-password: krD8@4c2B
+            source-path: '_build'
+            source-fileName: Demo.Web.zip

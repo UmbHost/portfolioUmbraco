@@ -21326,24 +21326,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\~0000AEAdmin\\.nuget\\packages\\": {},
+    "C:\\Users\\JuliusGoddard\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\Demo.Web.csproj",
+      "projectUniqueName": "C:\\Users\\JuliusGoddard\\Documents\\Repositories\\baseline2\\Demo.Web.csproj",
       "projectName": "Demo.Web",
-      "projectPath": "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\Demo.Web.csproj",
-      "packagesPath": "C:\\Users\\~0000AEAdmin\\.nuget\\packages\\",
-      "outputPath": "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\obj\\",
+      "projectPath": "C:\\Users\\JuliusGoddard\\Documents\\Repositories\\baseline2\\Demo.Web.csproj",
+      "packagesPath": "C:\\Users\\JuliusGoddard\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\JuliusGoddard\\Documents\\Repositories\\baseline2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\NuGet.Config",
-        "C:\\Users\\~0000AEAdmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\JuliusGoddard\\Documents\\Repositories\\baseline2\\NuGet.Config",
+        "C:\\Users\\JuliusGoddard\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -21352,7 +21352,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\users\\juliusgoddard\\documents\\repositories\\baseline2\\packages": {},
+        "C:\\Users\\JuliusGoddard\\Documents\\Repositories\\baseline2\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -21370,8 +21370,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -21469,7 +21468,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
