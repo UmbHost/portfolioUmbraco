@@ -33,6 +33,6 @@ jobs:
             server-computer-name: ${{ secrets.SERVER_COMPUTER_NAME }}
             server-username: ${{ secrets.USERNAME }}
             server-password: ${{ secrets.PASSWORD }}
-            source-path: '_build'
+            source-path: 'packages/_build'
             source-fileName: Demo.Web.zip
  
